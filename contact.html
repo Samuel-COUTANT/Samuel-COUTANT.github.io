@@ -56,19 +56,15 @@
                             <p class="contact-value">+33 6 40 75 20 45</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
+
+                    <div class="contact-item" id="instagramItem">
+                        <span class="contact-icon">📸</span>
                         <div class="contact-text">
-                            <p class="contact-label">Localisation</p>
-                            <p class="contact-value">Paris/Strasbourg</p>
+                            <p class="contact-label">Instagram</p>
+                            <p class="contact-value">@s.ctnt</p>
                         </div>
                     </div>
-                </div>
 
-                <button id="emailBtn" class="email-button">
-                    <span class="email-icon">✉️</span>
-                    Envoyer un email
-                </button>
                     <div class="contact-item">
                         <span class="contact-icon">📍</span>
                         <div class="contact-text">
@@ -120,6 +116,7 @@
                 contactInfoTitle: "Informations de contact",
                 emailLabel: "Email",
                 phoneLabel: "Téléphone",
+                instagramLabel: "Instagram",
                 locationLabel: "Localisation",
                 locationValue: "Paris/Strasbourg",
                 emailBtnText: "Envoyer un email",
@@ -138,6 +135,7 @@
                 contactInfoTitle: "Contact information",
                 emailLabel: "Email",
                 phoneLabel: "Phone",
+                instagramLabel: "Instagram",
                 locationLabel: "Location",
                 locationValue: "Paris/Strasbourg",
                 emailBtnText: "Send an email",
@@ -162,8 +160,9 @@
             document.querySelector('.contact-header h3').textContent = t.contactInfoTitle;
             document.querySelectorAll('.contact-label')[0].textContent = t.emailLabel;
             document.querySelectorAll('.contact-label')[1].textContent = t.phoneLabel;
-            document.querySelectorAll('.contact-label')[2].textContent = t.locationLabel;
-            document.querySelectorAll('.contact-value')[2].textContent = t.locationValue;            
+            document.querySelectorAll('.contact-label')[2].textContent = t.instagramLabel;
+            document.querySelectorAll('.contact-label')[3].textContent = t.locationLabel;
+            document.querySelectorAll('.contact-value')[3].textContent = t.locationValue;            
             document.querySelector('.email-button').innerHTML = `<span class="email-icon">✉️</span>${t.emailBtnText}`;
             
             const langBtn = document.getElementById('langBtn');
@@ -238,6 +237,31 @@
                     localStorage.setItem('language', currentLang);
                     updateContent(currentLang);
                 }, 150);
+            });
+
+            const instagramItem = document.getElementById('instagramItem');
+            instagramItem.style.cursor = 'pointer';
+            
+            instagramItem.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                this.style.boxShadow = '0 0 20px rgba(220, 53, 69, 0.6)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    window.open('https://www.instagram.com/s.ctnt/', '_blank');
+                }, 150);
+            });
+
+            instagramItem.addEventListener('mouseenter', function()
+            {
+                this.style.background = 'linear-gradient(45deg, rgba(225, 48, 108, 0.1), rgba(255, 204, 0, 0.1))';
+                this.style.borderColor = 'rgba(225, 48, 108, 0.4)';
+            });
+
+            instagramItem.addEventListener('mouseleave', function()
+            {
+                this.style.background = 'rgba(0, 0, 0, 0.3)';
+                this.style.borderColor = 'rgba(220, 53, 69, 0.2)';
             });
         });
 
