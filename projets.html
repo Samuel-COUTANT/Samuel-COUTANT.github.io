@@ -32,60 +32,47 @@
                 Voici une sélection de mes projets les plus marquants.
             </p>
         </section>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Short</h3>
-                <div class="video-container">
-                    <a href="https://www.youtube.com/shorts/80spv_1TshU" target="_blank" rel="noopener noreferrer">
-                        <img src="https://img.youtube.com/vi/80spv_1TshU/maxresdefault.jpg"
-                            alt="Projet 1 - Cliquez pour voir sur YouTube"
-                            style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease;">
-                    </a>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>Suicide Blonde clip non officiel</h3>
-                <div class="video-container">
-                    <a href="https://youtu.be/CdU1Qs8kYy8?si=Lrut3BRjH4iAP1wM" target="_blank" rel="noopener noreferrer">
-                        <img src="https://i.ytimg.com/an_webp/CdU1Qs8kYy8/mqdefault_6s.webp?du=3000&sqp=CIyJy8MG&rs=AOn4CLDJzdgzva-PPG81wELCTZeZXtUPcg"
-                            alt="Projet 1 - Cliquez pour voir sur YouTube"
-                            style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease;">
-                    </a>
-                </div>
-            </div>
 
-            <div class="project-card">
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">Tous</button>
+            <button class="filter-btn" data-category="films">Films</button>
+            <button class="filter-btn" data-category="clips">Clips</button>
+            <button class="filter-btn" data-category="random">Random</button>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card" data-category="films">
                 <h3>Alterius</h3>
                 <div class="video-container">
                     <a href="https://youtu.be/f0zxQMsftmY" target="_blank" rel="noopener noreferrer">
                         <img src="https://i9.ytimg.com/vi/f0zxQMsftmY/mq2.jpg?sqp=CISqy8MG-oaymwEmCMACELQB8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGHIgVSg1MA8%3D&rs=AOn4CLCWmfwoyaKVJ-TeJV478AnfNkYnSA&retry=2"
-                            alt="Projet 1 - Cliquez pour voir sur YouTube"
+                            alt="Alterius - Cliquez pour voir sur YouTube"
                             style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease;">
                     </a>
                 </div>
             </div>
 
-            
-            <!-- <div class="project-card">
-                <h3>Projet 4</h3>
+            <div class="project-card" data-category="clips">
+                <h3>Suicide Blonde clip non officiel</h3>
+                <div class="video-container">
+                    <a href="https://youtu.be/CdU1Qs8kYy8?si=Lrut3BRjH4iAP1wM" target="_blank" rel="noopener noreferrer">
+                        <img src="https://i.ytimg.com/an_webp/CdU1Qs8kYy8/mqdefault_6s.webp?du=3000&sqp=CIyJy8MG&rs=AOn4CLDJzdgzva-PPG81wELCTZeZXtUPcg"
+                            alt="Suicide Blonde - Cliquez pour voir sur YouTube"
+                            style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease;">
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="random">
+                <h3>Short</h3>
                 <div class="video-container">
                     <a href="https://www.youtube.com/shorts/80spv_1TshU" target="_blank" rel="noopener noreferrer">
                         <img src="https://img.youtube.com/vi/80spv_1TshU/maxresdefault.jpg"
-                            alt="Projet 1 - Cliquez pour voir sur YouTube"
+                            alt="Short - Cliquez pour voir sur YouTube"
                             style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease;">
                     </a>
                 </div>
-            </div> -->
-            <!-- <div class="project-card">
-                <h3>Projet 5</h3>
-                <div class="video-container">
-                    <a href="https://youtu.be/j13uxB6fDvk?si=Pb1Au4x66coSR2MI" target="_blank" rel="noopener noreferrer">
-                        <img src="https://i.ytimg.com/vi/tvf-M8uzToM/hqdefault.jpg?sqp=-oaymwEmCKgBEF5IWvKriqkDGQgBFQAAiEIYAdgBAeIBCggYEAIYBjgBQAE=&rs=AOn4CLD8-drw8vk-FCrTkBs6RtpNfB-R8w"
-                            alt="Projet 1 - Cliquez pour voir sur YouTube"
-                            style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease;">
-                    </a>
-                </div>
-            </div> -->
+            </div>
         </div>
     </main>
 
@@ -121,10 +108,13 @@
                 navContact: "Contact",
                 introTitle: "Découvrez mes réalisations",
                 introText: "Voici une sélection de mes projets les plus marquants.",
-                project1: "Short",
-                project2: "Suicide Blonde",
-                project3: "Alterius",
-                // project4: "Projet 4",
+                filterAll: "Tous",
+                filterFilms: "Films",
+                filterClips: "Clips",
+                filterRandom: "Random",
+                projectShort: "Short",
+                projectSuicideBlonde: "Suicide Blonde clip non officiel",
+                projectAlterius: "Alterius",
                 altText: "Projet X - Cliquez pour voir sur YouTube",
                 langButtonTitle: "Switch to English"
             },
@@ -136,10 +126,13 @@
                 navContact: "Contact",
                 introTitle: "Discover my work",
                 introText: "Here is a selection of my most notable projects.",
-                project1: "Short",
-                project2: "Suicide Blonde",
-                project3: "Alterius",
-                // project4: "Project 4",
+                filterAll: "All",
+                filterFilms: "Films",
+                filterClips: "Clips",
+                filterRandom: "Random",
+                projectShort: "Short",
+                projectSuicideBlonde: "Suicide Blonde unofficial clip",
+                projectAlterius: "Alterius",
                 altText: "Project X - Click to watch on YouTube",
                 langButtonTitle: "Passer en français"
             }
@@ -159,11 +152,16 @@
             document.querySelector('.intro-section h2').textContent = t.introTitle;
             document.querySelector('.intro-section p').textContent = t.introText;
             
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons[0].textContent = t.filterAll;
+            filterButtons[1].textContent = t.filterFilms;
+            filterButtons[2].textContent = t.filterClips;
+            filterButtons[3].textContent = t.filterRandom;
+            
             const projectTitles = document.querySelectorAll('.project-card h3');
-            projectTitles[0].textContent = t.project1;
-            projectTitles[1].textContent = t.project2;
-            projectTitles[2].textContent = t.project3;
-            projectTitles[3].textContent = t.project4;
+            projectTitles[0].textContent = t.projectAlterius;
+            projectTitles[1].textContent = t.projectSuicideBlonde;
+            projectTitles[2].textContent = t.projectShort;
             
             const images = document.querySelectorAll('.project-card img');
             images.forEach((img, index) => {
@@ -224,6 +222,44 @@
                     localStorage.setItem('language', currentLang);
                     updateContent(currentLang);
                 }, 150);
+            });
+
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    projectCards.forEach((card, index) => {
+                        const cardCategory = card.getAttribute('data-category');
+                        
+                        if (category === 'all' || cardCategory === category) {
+                            setTimeout(() => {
+                                card.style.display = 'block';
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px) scale(0.9)';
+                                
+                                setTimeout(() => {
+                                    card.style.transition = 'all 0.5s ease-out';
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0) scale(1)';
+                                }, 50);
+                            }, index * 100);
+                        } else {
+                            card.style.transition = 'all 0.3s ease-out';
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(-20px) scale(0.9)';
+                            
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
             });
         });
 
