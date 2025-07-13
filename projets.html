@@ -45,9 +45,12 @@
                 <h3>Alterius</h3>
                 <div class="video-container">
                     <a href="https://youtu.be/f0zxQMsftmY" target="_blank" rel="noopener noreferrer">
-                        <img src="https://i.ytimg.com/an_webp/f0zxQMsftmY/mqdefault_6s.webp?du=3000&sqp=CNK5y8MG&rs=AOn4CLBdz8HqeC4ZE3p2jMcMgp_0QdD7VA"
+                        <img src="https://img.youtube.com/vi/f0zxQMsftmY/maxresdefault.jpg"
                             alt="Alterius - Cliquez pour voir sur YouTube"
-                            style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease;">
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -56,9 +59,12 @@
                 <h3>Suicide Blonde clip non officiel</h3>
                 <div class="video-container">
                     <a href="https://youtu.be/CdU1Qs8kYy8?si=Lrut3BRjH4iAP1wM" target="_blank" rel="noopener noreferrer">
-                        <img src="https://i.ytimg.com/an_webp/CdU1Qs8kYy8/mqdefault_6s.webp?du=3000&sqp=CIyJy8MG&rs=AOn4CLDJzdgzva-PPG81wELCTZeZXtUPcg"
+                        <img src="https://img.youtube.com/vi/CdU1Qs8kYy8/maxresdefault.jpg"
                             alt="Suicide Blonde - Cliquez pour voir sur YouTube"
-                            style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease;">
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -69,7 +75,10 @@
                     <a href="https://www.youtube.com/shorts/80spv_1TshU" target="_blank" rel="noopener noreferrer">
                         <img src="https://img.youtube.com/vi/80spv_1TshU/maxresdefault.jpg"
                             alt="Short - Cliquez pour voir sur YouTube"
-                            style="width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: opacity 0.3s ease;">
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -284,6 +293,89 @@
         }
         window.addEventListener('scroll', checkScroll);
         window.addEventListener('load', checkScroll);
+
+        // Animation des aperçus vidéo
+        function initVideoPreviewAnimations() {
+            const videoContainers = document.querySelectorAll('.video-container');
+            
+            videoContainers.forEach((container, index) => {
+                const img = container.querySelector('.video-preview');
+                const overlay = container.querySelector('.video-overlay');
+                
+                // Animation décalée pour chaque vidéo
+                setTimeout(() => {
+                    img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
+                }, index * 500);
+                
+                // Animation au survol
+                container.addEventListener('mouseenter', () => {
+                    img.style.animation = 'subtle-breathe 2s ease-in-out infinite';
+                    overlay.style.opacity = '1';
+                });
+                
+                container.addEventListener('mouseleave', () => {
+                    img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
+                    overlay.style.opacity = '0';
+                });
+            });
+        }
+
+        // Simulation d'aperçu GIF avec changement d'images
+        function simulateGifEffect() {
+            const videos = [
+                {
+                    id: 'f0zxQMsftmY',
+                    images: [
+                        'https://img.youtube.com/vi/f0zxQMsftmY/maxresdefault.jpg',
+                        'https://img.youtube.com/vi/f0zxQMsftmY/hqdefault.jpg',
+                        'https://img.youtube.com/vi/f0zxQMsftmY/mqdefault.jpg'
+                    ]
+                },
+                {
+                    id: 'CdU1Qs8kYy8',
+                    images: [
+                        'https://img.youtube.com/vi/CdU1Qs8kYy8/maxresdefault.jpg',
+                        'https://img.youtube.com/vi/CdU1Qs8kYy8/hqdefault.jpg',
+                        'https://img.youtube.com/vi/CdU1Qs8kYy8/mqdefault.jpg'
+                    ]
+                },
+                {
+                    id: '80spv_1TshU',
+                    images: [
+                        'https://img.youtube.com/vi/80spv_1TshU/maxresdefault.jpg',
+                        'https://img.youtube.com/vi/80spv_1TshU/hqdefault.jpg',
+                        'https://img.youtube.com/vi/80spv_1TshU/mqdefault.jpg'
+                    ]
+                }
+            ];
+
+            videos.forEach((video, videoIndex) => {
+                const container = document.querySelectorAll('.video-container')[videoIndex];
+                if (container) {
+                    const img = container.querySelector('.video-preview');
+                    let currentImageIndex = 0;
+                    
+                    // Changer l'image toutes les 3 secondes
+                    setInterval(() => {
+                        if (container.matches(':hover')) {
+                            currentImageIndex = (currentImageIndex + 1) % video.images.length;
+                            img.style.opacity = '0.5';
+                            
+                            setTimeout(() => {
+                                img.src = video.images[currentImageIndex];
+                                img.style.opacity = '1';
+                            }, 150);
+                        }
+                    }, 3000);
+                }
+            });
+        }
+
+        // Initialiser les animations
+        window.addEventListener('load', () => {
+            initVideoPreviewAnimations();
+            simulateGifEffect();
+        });
     </script>
 </body>
 </html>
