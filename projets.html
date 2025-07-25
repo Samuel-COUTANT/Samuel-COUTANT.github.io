@@ -41,6 +41,21 @@
         </div>
 
         <div class="projects-grid">
+            <div class="project-card" data-category="films">
+                <h3>Sous la Surface</h3>
+                <div class="video-container">
+                    <a href="https://youtu.be/hyRQfjAJkn8" target="_blank" rel="noopener noreferrer">
+                        <img src="https://i9.ytimg.com/vi_webp/hyRQfjAJkn8/mqdefault.webp?v=688350a7&sqp=CPChjcQG&rs=AOn4CLAaWgO3ATOp-BbeHQOQVIzxOxGxSA"
+                            alt="Sous la surface - Cliquez pour voir sur YouTube"
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        <div class="projects-grid">
             <div class="project-card" data-category="clips">
                 <h3>Suicide Blonde clip non officiel</h3>
                 <div class="video-container">
@@ -168,9 +183,10 @@
             filterButtons[3].textContent = t.filterRandom;
             
             const projectTitles = document.querySelectorAll('.project-card h3');
-            projectTitles[0].textContent = t.projectSuicideBlonde;
-            projectTitles[1].textContent = t.projectAlterius;
-            projectTitles[2].textContent = t.projectShort;
+            projectTitles[0].textContent = t.projectSouslasurface;
+            projectTitles[1].textContent = t.projectSuicideBlonde;
+            projectTitles[2].textContent = t.projectAlterius;
+            projectTitles[3].textContent = t.projectShort;
             
             const images = document.querySelectorAll('.project-card img');
             images.forEach((img, index) => {
