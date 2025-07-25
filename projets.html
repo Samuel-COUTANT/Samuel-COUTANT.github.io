@@ -39,22 +39,7 @@
             <button class="filter-btn" data-category="clips" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: rgba(220, 53, 69, 0.1); color: #dc3545; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Clips</button>
             <button class="filter-btn" data-category="random" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: rgba(220, 53, 69, 0.1); color: #dc3545; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Random</button>
         </div>
-
-         <div class="projects-grid">
-            <div class="project-card" data-category="films">
-                <h3>Sous la surface</h3>
-                <div class="video-container">
-                    <a href="https://youtu.be/hyRQfjAJkn8?si=V6axj3qFsriQmpoG" target="_blank" rel="noopener noreferrer">
-                        <img src="https://i.ytimg.com/an_webp/hyRQfjAJkn8/mqdefault_6s.webp?du=3000&sqp=CPqcjcQG&rs=AOn4CLDAQYd3Wn0mNpoDxqydkR86x7YiKQ"
-                            alt="Sous la surface - Cliquez pour voir sur YouTube"
-                            class="video-preview">
-                        <div class="video-overlay">
-                            <div class="play-pulse"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        
+      
         <div class="projects-grid">
             <div class="project-card" data-category="clips">
                 <h3>Suicide Blonde clip non officiel</h3>
@@ -183,10 +168,9 @@
             filterButtons[3].textContent = t.filterRandom;
             
             const projectTitles = document.querySelectorAll('.project-card h3');
-            projectTitles[0].textContent = t.projectSouslasurface;
-            projectTitles[1].textContent = t.projectSuicideBlonde;
-            projectTitles[2].textContent = t.projectAlterius;
-            projectTitles[3].textContent = t.projectShort;
+            projectTitles[0].textContent = t.projectSuicideBlonde;
+            projectTitles[1].textContent = t.projectAlterius;
+            projectTitles[2].textContent = t.projectShort;
             
             const images = document.querySelectorAll('.project-card img');
             images.forEach((img, index) => {
