@@ -44,7 +44,7 @@
                 <h3>Suicide Blonde clip non officiel</h3>
                 <div class="video-container">
                     <a href="https://youtu.be/CdU1Qs8kYy8?si=Lrut3BRjH4iAP1wM" target="_blank" rel="noopener noreferrer">
-                        <img src="https://i.ytimg.com/an_webp/CdU1Qs8kYy8/mqdefault_6s.webp?du=3000&sqp=CMqsjcQG&rs=AOn4CLCOUMQAHRCUY9Ksj0Em9gHjbtHpBw"
+                        <img src="assets/thumbnails/suicide_blond.webp"
                             alt="Suicide Blonde clip non officiel - Cliquez pour voir sur YouTube"
                             class="video-preview">
                         <div class="video-overlay">
@@ -58,7 +58,7 @@
                 <h3>Alterius</h3>
                 <div class="video-container">
                     <a href="https://youtu.be/f0zxQMsftmY " target="_blank" rel="noopener noreferrer">
-                        <img src="https://i.ytimg.com/an_webp/f0zxQMsftmY/mqdefault_6s.webp?du=3000&sqp=CJChjcQG&rs=AOn4CLBK_q31-_loaZJLlo6zNpY0Yx2h8w"
+                        <img src="assets/thumbnails/alterius.webp"
                             alt="Alterius - Cliquez pour voir sur YouTube"
                             class="video-preview">
                         <div class="video-overlay">
@@ -72,7 +72,7 @@
                 <h3>Sous la surface</h3>
                 <div class="video-container">
                     <a href="https://www.youtube.com/watch?v=hyRQfjAJkn8&t=1s" target="_blank" rel="noopener noreferrer">
-                        <img src="https://img.youtube.com/vi/hyRQfjAJkn8/maxresdefault.jpg"
+                        <img src="assets/thumbnails/sous_la_surface.webp"
                             alt="Sous la surface - Cliquez pour voir sur YouTube"
                             class="video-preview">
                         <div class="video-overlay">
@@ -86,7 +86,7 @@
                 <h3>Short</h3>
                 <div class="video-container">
                     <a href="https://www.youtube.com/shorts/80spv_1TshU" target="_blank" rel="noopener noreferrer">
-                        <img src="https://img.youtube.com/vi/80spv_1TshU/maxresdefault.jpg"
+                        <img src="assets/thumbnails/short.webp"
                             alt="Short - Cliquez pour voir sur YouTube"
                             class="video-preview">
                         <div class="video-overlay">
@@ -333,68 +333,9 @@
             });
         }
 
-        function simulateGifEffect() {
-            const videos = [
-                {
-                    id: 'CdU1Qs8kYy8',
-                    images: [
-                        'https://img.youtube.com/vi/CdU1Qs8kYy8/maxresdefault.jpg',
-                        'https://img.youtube.com/vi/CdU1Qs8kYy8/hqdefault.jpg',
-                        'https://img.youtube.com/vi/CdU1Qs8kYy8/mqdefault.jpg'
-                    ]
-                },
-                {
-                    id: 'f0zxQMsftmY',
-                    images: [
-                        'https://img.youtube.com/vi/f0zxQMsftmY/maxresdefault.jpg',
-                        'https://img.youtube.com/vi/f0zxQMsftmY/hqdefault.jpg',
-                        'https://img.youtube.com/vi/f0zxQMsftmY/mqdefault.jpg'
-                    ]
-                },
-                {
-                    id: 'hyRQfjAJkn8',
-                    images: [
-                        'https://img.youtube.com/vi/hyRQfjAJkn8/maxresdefault.jpg',
-                        'https://img.youtube.com/vi/hyRQfjAJkn8/hqdefault.jpg',
-                        'https://img.youtube.com/vi/hyRQfjAJkn8/mqdefault.jpg'
-                    ]
-                },
-                {
-                    id: '80spv_1TshU',
-                    images: [
-                        'https://img.youtube.com/vi/80spv_1TshU/maxresdefault.jpg',
-                        'https://img.youtube.com/vi/80spv_1TshU/hqdefault.jpg',
-                        'https://img.youtube.com/vi/80spv_1TshU/mqdefault.jpg'
-                    ]
-                }
-            ];
-
-            videos.forEach((video, videoIndex) => {
-                const container = document.querySelectorAll('.video-container')[videoIndex];
-                if (container) {
-                    const img = container.querySelector('.video-preview');
-                    let currentImageIndex = 0;
-                    
-                    // Changer l'image toutes les 3 secondes
-                    setInterval(() => {
-                        if (container.matches(':hover')) {
-                            currentImageIndex = (currentImageIndex + 1) % video.images.length;
-                            img.style.opacity = '0.5';
-                            
-                            setTimeout(() => {
-                                img.src = video.images[currentImageIndex];
-                                img.style.opacity = '1';
-                            }, 150);
-                        }
-                    }, 3000);
-                }
-            });
-        }
-
         // Initialiser les animations
         window.addEventListener('load', () => {
             initVideoPreviewAnimations();
-            simulateGifEffect();
         });
     </script>
 </body>
