@@ -6,12 +6,11 @@
     <meta name="description" content="Explorez les projets mes créatifs">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projets - Samuel COUTANT</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -61,6 +60,20 @@
                     <a href="https://youtu.be/f0zxQMsftmY " target="_blank" rel="noopener noreferrer">
                         <img src="https://i.ytimg.com/an_webp/f0zxQMsftmY/mqdefault_6s.webp?du=3000&sqp=CJChjcQG&rs=AOn4CLBK_q31-_loaZJLlo6zNpY0Yx2h8w"
                             alt="Alterius - Cliquez pour voir sur YouTube"
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="films">
+                <h3>Sous la surface</h3>
+                <div class="video-container">
+                    <a href="https://www.youtube.com/watch?v=hyRQfjAJkn8&t=1s" target="_blank" rel="noopener noreferrer">
+                        <img src="https://img.youtube.com/vi/hyRQfjAJkn8/maxresdefault.jpg"
+                            alt="Sous la surface - Cliquez pour voir sur YouTube"
                             class="video-preview">
                         <div class="video-overlay">
                             <div class="play-pulse"></div>
@@ -124,6 +137,7 @@
                 projectShort: "Short",
                 projectSuicideBlonde: "Suicide Blonde clip non officiel",
                 projectAlterius: "Alterius",
+                projectSousLaSurface: "Sous la surface",
                 altText: "Projet X - Cliquez pour voir sur YouTube",
                 langButtonTitle: "Switch to English"
             },
@@ -142,6 +156,7 @@
                 projectShort: "Short",
                 projectSuicideBlonde: "Suicide Blonde unofficial clip",
                 projectAlterius: "Alterius",
+                projectSousLaSurface: "Under the surface",
                 altText: "Project X - Click to watch on YouTube",
                 langButtonTitle: "Passer en français"
             }
@@ -170,7 +185,8 @@
             const projectTitles = document.querySelectorAll('.project-card h3');
             projectTitles[0].textContent = t.projectSuicideBlonde;
             projectTitles[1].textContent = t.projectAlterius;
-            projectTitles[2].textContent = t.projectShort;
+            projectTitles[2].textContent = t.projectSousLaSurface;
+            projectTitles[3].textContent = t.projectShort;
             
             const images = document.querySelectorAll('.project-card img');
             images.forEach((img, index) => {
@@ -294,7 +310,6 @@
         window.addEventListener('scroll', checkScroll);
         window.addEventListener('load', checkScroll);
 
-        // Animation des aperçus vidéo
         function initVideoPreviewAnimations() {
             const videoContainers = document.querySelectorAll('.video-container');
             
@@ -302,12 +317,10 @@
                 const img = container.querySelector('.video-preview');
                 const overlay = container.querySelector('.video-overlay');
                 
-                // Animation décalée pour chaque vidéo
                 setTimeout(() => {
                     img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
                 }, index * 500);
                 
-                // Animation au survol
                 container.addEventListener('mouseenter', () => {
                     img.style.animation = 'subtle-breathe 2s ease-in-out infinite';
                     overlay.style.opacity = '1';
@@ -320,9 +333,16 @@
             });
         }
 
-        // Simulation d'aperçu GIF avec changement d'images
         function simulateGifEffect() {
             const videos = [
+                {
+                    id: 'CdU1Qs8kYy8',
+                    images: [
+                        'https://img.youtube.com/vi/CdU1Qs8kYy8/maxresdefault.jpg',
+                        'https://img.youtube.com/vi/CdU1Qs8kYy8/hqdefault.jpg',
+                        'https://img.youtube.com/vi/CdU1Qs8kYy8/mqdefault.jpg'
+                    ]
+                },
                 {
                     id: 'f0zxQMsftmY',
                     images: [
@@ -332,11 +352,11 @@
                     ]
                 },
                 {
-                    id: 'CdU1Qs8kYy8',
+                    id: 'hyRQfjAJkn8',
                     images: [
-                        'https://img.youtube.com/vi/CdU1Qs8kYy8/maxresdefault.jpg',
-                        'https://img.youtube.com/vi/CdU1Qs8kYy8/hqdefault.jpg',
-                        'https://img.youtube.com/vi/CdU1Qs8kYy8/mqdefault.jpg'
+                        'https://img.youtube.com/vi/hyRQfjAJkn8/maxresdefault.jpg',
+                        'https://img.youtube.com/vi/hyRQfjAJkn8/hqdefault.jpg',
+                        'https://img.youtube.com/vi/hyRQfjAJkn8/mqdefault.jpg'
                     ]
                 },
                 {
