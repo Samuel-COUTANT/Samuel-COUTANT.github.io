@@ -33,17 +33,17 @@
         </section>
 
         <div class="category-filters">
-            <button class="filter-btn active" data-category="all" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: #dc3545; color: white; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Tous</button>
-            <button class="filter-btn" data-category="films" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: rgba(220, 53, 69, 0.1); color: #dc3545; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Films</button>
-            <button class="filter-btn" data-category="clips" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: rgba(220, 53, 69, 0.1); color: #dc3545; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Clips</button>
-            <button class="filter-btn" data-category="autre" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: rgba(220, 53, 69, 0.1); color: #dc3545; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Autre</button>
+            <button class="filter-btn active" data-category="all">Tous</button>
+            <button class="filter-btn" data-category="films">Films</button>
+            <button class="filter-btn" data-category="clips">Clips</button>
+            <button class="filter-btn" data-category="autre">Autre</button>
         </div>
 
         <div class="projects-grid">
-           <div class="project-card" data-category="films">
+            <div class="project-card" data-category="films">
                 <h3>Remake Pulp Fiction</h3>
-                    <div class="video-container">
-                     <a href="https://youtu.be/evMCBbycDW8" target="_blank" rel="noopener noreferrer">
+                <div class="video-container">
+                    <a href="https://youtu.be/evMCBbycDW8" target="_blank" rel="noopener noreferrer">
                         <img src="assets/thumbnails/pulp-fiction.webp"
                             alt="Remake Pulp Fiction - Cliquez pour voir sur YouTube"
                             class="video-preview">
@@ -52,8 +52,8 @@
                         </div>
                     </a>
                 </div>
-            </div> 
-            
+            </div>
+
             <div class="project-card" data-category="clips">
                 <h3>Suicide Blonde clip non officiel</h3>
                 <div class="video-container">
@@ -172,7 +172,7 @@
                 projectSuicideBlonde: "Suicide Blonde unofficial clip",
                 projectAlterius: "Alterius",
                 projectSousLaSurface: "Under the surface",
-                projectRemakePulpFiction : "Remake Pulp Fiction",
+                projectRemakePulpFiction : "Pulp Fiction Remake",
                 altText: "Project X - Click to watch on YouTube",
                 langButtonTitle: "Passer en français"
             }
@@ -180,8 +180,7 @@
 
         let currentLang = localStorage.getItem('language') || 'fr';
 
-        function updateContent(lang)
-        {
+        function updateContent(lang) {
             const t = translations[lang];
             
             document.title = t.title;            
@@ -199,14 +198,12 @@
             filterButtons[3].textContent = t.filterRandom;
             
             const projectTitles = document.querySelectorAll('.project-card h3');
-
             projectTitles[0].textContent = t.projectRemakePulpFiction;
             projectTitles[1].textContent = t.projectSuicideBlonde;
             projectTitles[2].textContent = t.projectAlterius;
             projectTitles[3].textContent = t.projectSousLaSurface;
             projectTitles[4].textContent = t.projectShort;
           
-            
             const images = document.querySelectorAll('.project-card img');
             images.forEach((img, index) => {
                 img.alt = t.altText.replace('X', index + 1);
@@ -232,129 +229,8 @@
             }
         }
 
-        window.addEventListener('load', function()
-        {
+        window.addEventListener('load', function() {
             updateContent(currentLang);
-            
-            const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach((card) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(50px) scale(0.9)';
-            });
-
-            projectCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.transition = 'all 0.6s ease-out';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0) scale(1)';
-                }, index * 200);
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function()
-        {
-            const langBtn = document.getElementById('langBtn');
-            
-            langBtn.addEventListener('click', function()
-            {
-                this.style.transform = 'scale(0.9)';
-                this.style.boxShadow = '0 0 20px rgba(220, 53, 69, 0.8)';
-                
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                    currentLang = currentLang === 'fr' ? 'en' : 'fr';
-                    localStorage.setItem('language', currentLang);
-                    updateContent(currentLang);
-                }, 150);
-            });
-
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    projectCards.forEach((card, index) => {
-                        const cardCategory = card.getAttribute('data-category');
-                        
-                        if (category === 'all' || cardCategory === category) {
-                            setTimeout(() => {
-                                card.style.display = 'block';
-                                card.style.opacity = '0';
-                                card.style.transform = 'translateY(20px) scale(0.9)';
-                                
-                                setTimeout(() => {
-                                    card.style.transition = 'all 0.5s ease-out';
-                                    card.style.opacity = '1';
-                                    card.style.transform = 'translateY(0) scale(1)';
-                                }, 50);
-                            }, index * 100);
-                        } else {
-                            card.style.transition = 'all 0.3s ease-out';
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(-20px) scale(0.9)';
-                            
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                });
-            });
-        });
-
-        function checkScroll()
-        {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const scrollPercentage = (scrollTop + windowHeight) / documentHeight;
-
-            if (scrollPercentage >= 0.8 || (scrollTop + windowHeight >= documentHeight - 50)) {
-                document.body.classList.add('show-footer');
-            } else {
-                document.body.classList.remove('show-footer');
-            }
-            const langToggle = document.querySelector('.language-toggle');
-            if (scrollTop <= 50) {
-                langToggle.classList.add('show-lang');
-            } else {
-                langToggle.classList.remove('show-lang');
-            }
-        }
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
-
-        function initVideoPreviewAnimations() {
-            const videoContainers = document.querySelectorAll('.video-container');
-            
-            videoContainers.forEach((container, index) => {
-                const img = container.querySelector('.video-preview');
-                const overlay = container.querySelector('.video-overlay');
-                
-                setTimeout(() => {
-                    img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
-                }, index * 500);
-                
-                container.addEventListener('mouseenter', () => {
-                    img.style.animation = 'subtle-breathe 2s ease-in-out infinite';
-                    overlay.style.opacity = '1';
-                });
-                
-                container.addEventListener('mouseleave', () => {
-                    img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
-                    overlay.style.opacity = '0';
-                });
-            });
-        }
-
-        // Initialiser les animations
-        window.addEventListener('load', () => {
-            initVideoPreviewAnimations();
         });
     </script>
 </body>
