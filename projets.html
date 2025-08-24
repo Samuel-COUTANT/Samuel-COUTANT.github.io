@@ -135,227 +135,222 @@
     </div>
 
     <script>
-        const translations = {
-            fr: {
-                title: "Projets - Samuel COUTANT",
-                headerTitle: "Samuel COUTANT - Mes Projets",
-                navHome: "Accueil",
-                navProjects: "Projets",
-                navContact: "Contact",
-                introTitle: "Découvrez mes réalisations",
-                introText: "Voici une sélection de mes projets les plus marquants.",
-                filterAll: "Tous",
-                filterFilms: "Films",
-                filterClips: "Clips",
-                filterRandom: "Autre",
-                projectShort: "Short",
-                projectSuicideBlonde: "Suicide Blonde clip non officiel",
-                projectAlterius: "Alterius",
-                projectSousLaSurface: "Sous la surface",
-                projectRemakePulpFiction : "Remake Pulp Fiction",
-                altText: "Projet X - Cliquez pour voir sur YouTube",
-                langButtonTitle: "Switch to English"
-            },
-            en: {
-                title: "Projects - Samuel COUTANT",
-                headerTitle: "Samuel COUTANT - My Projects",
-                navHome: "Home",
-                navProjects: "Projects",
-                navContact: "Contact",
-                introTitle: "Discover my work",
-                introText: "Here is a selection of my most notable projects.",
-                filterAll: "All",
-                filterFilms: "Films",
-                filterClips: "Clips",
-                filterRandom: "Other",
-                projectShort: "Short",
-                projectSuicideBlonde: "Suicide Blonde unofficial clip",
-                projectAlterius: "Alterius",
-                projectSousLaSurface: "Under the surface",
-                projectRemakePulpFiction : "Remake Pulp Fiction",
-                altText: "Project X - Click to watch on YouTube",
-                langButtonTitle: "Passer en français"
-            }
-        };
-
-        let currentLang = localStorage.getItem('language') || 'fr';
-
-        function updateContent(lang)
-        {
-            const t = translations[lang];
-            
-            document.title = t.title;            
-            document.querySelector('header h1').textContent = t.headerTitle;
-            document.querySelector('nav a[href="index.html"]').textContent = t.navHome;
-            document.querySelector('nav a[href="projets.html"]').textContent = t.navProjects;
-            document.querySelector('nav a[href="contact.html"]').textContent = t.navContact;
-            document.querySelector('.intro-section h2').textContent = t.introTitle;
-            document.querySelector('.intro-section p').textContent = t.introText;
-            
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            filterButtons[0].textContent = t.filterAll;
-            filterButtons[1].textContent = t.filterFilms;
-            filterButtons[2].textContent = t.filterClips;
-            filterButtons[3].textContent = t.filterRandom;
-            
-            const projectTitles = document.querySelectorAll('.project-card h3');
-
-            projectTitles[0].textContent = t.projectRemakePulpFiction;
-            projectTitles[1].textContent = t.projectSuicideBlonde;
-            projectTitles[2].textContent = t.projectAlterius;
-            projectTitles[3].textContent = t.projectSousLaSurface;
-            projectTitles[4].textContent = t.projectShort;
-          
-            
-            const images = document.querySelectorAll('.project-card img');
-            images.forEach((img, index) => {
-                img.alt = t.altText.replace('X', index + 1);
-            });
-            
-            const langBtn = document.getElementById('langBtn');
-            if (lang === 'fr') {
-                langBtn.innerHTML = `<svg class="flag-icon" width="24" height="18" viewBox="0 0 24 18" fill="none">
-                    <rect width="24" height="18" fill="#012169"/>
-                    <path d="M0 0L24 18M24 0L0 18" stroke="white" stroke-width="2"/>
-                    <path d="M0 0L24 18M24 0L0 18" stroke="#C8102E" stroke-width="1"/>
-                    <path d="M12 0V18M0 9H24" stroke="white" stroke-width="3"/>
-                    <path d="M12 0V18M0 9H24" stroke="#C8102E" stroke-width="2"/>
-                </svg>`;
-                langBtn.title = t.langButtonTitle;
-            } else {
-                langBtn.innerHTML = `<svg class="flag-icon" width="24" height="18" viewBox="0 0 24 18" fill="none">
-                    <rect width="8" height="18" fill="#002654"/>
-                    <rect x="8" width="8" height="18" fill="white"/>
-                    <rect x="16" width="8" height="18" fill="#CE1126"/>
-                </svg>`;
-                langBtn.title = t.langButtonTitle;
-            }
+    const translations = {
+        fr: {
+            title: "Projets - Samuel COUTANT",
+            headerTitle: "Samuel COUTANT - Mes Projets",
+            navHome: "Accueil",
+            navProjects: "Projets",
+            navContact: "Contact",
+            introTitle: "Découvrez mes réalisations",
+            introText: "Voici une sélection de mes projets les plus marquants.",
+            filterAll: "Tous",
+            filterFilms: "Films",
+            filterClips: "Clips",
+            filterRandom: "Autre",
+            projectShort: "Short",
+            projectSuicideBlonde: "Suicide Blonde clip non officiel",
+            projectAlterius: "Alterius",
+            projectSousLaSurface: "Sous la surface",
+            projectRemakePulpFiction : "Remake Pulp Fiction",
+            altText: "Projet X - Cliquez pour voir sur YouTube",
+            langButtonTitle: "Switch to English"
+        },
+        en: {
+            title: "Projects - Samuel COUTANT",
+            headerTitle: "Samuel COUTANT - My Projects",
+            navHome: "Home",
+            navProjects: "Projects",
+            navContact: "Contact",
+            introTitle: "Discover my work",
+            introText: "Here is a selection of my most notable projects.",
+            filterAll: "All",
+            filterFilms: "Films",
+            filterClips: "Clips",
+            filterRandom: "Other",
+            projectShort: "Short",
+            projectSuicideBlonde: "Suicide Blonde unofficial clip",
+            projectAlterius: "Alterius",
+            projectSousLaSurface: "Under the surface",
+            projectRemakePulpFiction : "Remake Pulp Fiction",
+            altText: "Project X - Click to watch on YouTube",
+            langButtonTitle: "Passer en français"
         }
+    };
 
-        window.addEventListener('load', function()
-        {
-            updateContent(currentLang);
-            
-            const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach((card) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(50px) scale(0.9)';
-            });
+    let currentLang = localStorage.getItem('language') || 'fr';
 
-            projectCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.transition = 'all 0.6s ease-out';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0) scale(1)';
-                }, index * 200);
-            });
+    function updateContent(lang)
+    {
+        const t = translations[lang];
+        
+        document.title = t.title;            
+        document.querySelector('header h1').textContent = t.headerTitle;
+        document.querySelector('nav a[href="index.html"]').textContent = t.navHome;
+        document.querySelector('nav a[href="projets.html"]').textContent = t.navProjects;
+        document.querySelector('nav a[href="contact.html"]').textContent = t.navContact;
+        document.querySelector('.intro-section h2').textContent = t.introTitle;
+        document.querySelector('.intro-section p').textContent = t.introText;
+        
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons[0].textContent = t.filterAll;
+        filterButtons[1].textContent = t.filterFilms;
+        filterButtons[2].textContent = t.filterClips;
+        filterButtons[3].textContent = t.filterRandom;
+        
+        const projectTitles = document.querySelectorAll('.project-card h3');
+
+        projectTitles[0].textContent = t.projectRemakePulpFiction;
+        projectTitles[1].textContent = t.projectSuicideBlonde;
+        projectTitles[2].textContent = t.projectAlterius;
+        projectTitles[3].textContent = t.projectSousLaSurface;
+        projectTitles[4].textContent = t.projectShort;
+      
+        
+        const images = document.querySelectorAll('.project-card img');
+        images.forEach((img, index) => {
+            img.alt = t.altText.replace('X', index + 1);
+        });
+        
+        const langBtn = document.getElementById('langBtn');
+        if (lang === 'fr') {
+            langBtn.innerHTML = `<svg class="flag-icon" width="24" height="18" viewBox="0 0 24 18" fill="none">
+                <rect width="24" height="18" fill="#012169"/>
+                <path d="M0 0L24 18M24 0L0 18" stroke="white" stroke-width="2"/>
+                <path d="M0 0L24 18M24 0L0 18" stroke="#C8102E" stroke-width="1"/>
+                <path d="M12 0V18M0 9H24" stroke="white" stroke-width="3"/>
+                <path d="M12 0V18M0 9H24" stroke="#C8102E" stroke-width="2"/>
+            </svg>`;
+            langBtn.title = t.langButtonTitle;
+        } else {
+            langBtn.innerHTML = `<svg class="flag-icon" width="24" height="18" viewBox="0 0 24 18" fill="none">
+                <rect width="8" height="18" fill="#002654"/>
+                <rect x="8" width="8" height="18" fill="white"/>
+                <rect x="16" width="8" height="18" fill="#CE1126"/>
+            </svg>`;
+            langBtn.title = t.langButtonTitle;
+        }
+    }
+
+    window.addEventListener('load', function()
+    {
+        updateContent(currentLang);
+        
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px) scale(0.9)';
         });
 
-        document.addEventListener('DOMContentLoaded', function()
+        projectCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s ease-out';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0) scale(1)';
+            }, index * 200);
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function()
+    {
+        const langBtn = document.getElementById('langBtn');
+        
+        langBtn.addEventListener('click', function()
         {
-            const langBtn = document.getElementById('langBtn');
+            this.style.transform = 'scale(0.9)';
+            this.style.boxShadow = '0 0 20px rgba(220, 53, 69, 0.8)';
             
-            langBtn.addEventListener('click', function()
-            {
-                this.style.transform = 'scale(0.9)';
-                this.style.boxShadow = '0 0 20px rgba(220, 53, 69, 0.8)';
-                
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                    currentLang = currentLang === 'fr' ? 'en' : 'fr';
-                    localStorage.setItem('language', currentLang);
-                    updateContent(currentLang);
-                }, 150);
-            });
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+                currentLang = currentLang === 'fr' ? 'en' : 'fr';
+                localStorage.setItem('language', currentLang);
+                updateContent(currentLang);
+            }, 150);
+        });
 
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
+        // ====== Filtrage corrigé ======
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    projectCards.forEach((card, index) => {
-                        const cardCategory = card.getAttribute('data-category');
-                        
-                        if (category === 'all' || cardCategory === category) {
-                            setTimeout(() => {
-                                card.style.display = 'block';
-                                card.style.opacity = '0';
-                                card.style.transform = 'translateY(20px) scale(0.9)';
-                                
-                                setTimeout(() => {
-                                    card.style.transition = 'all 0.5s ease-out';
-                                    card.style.opacity = '1';
-                                    card.style.transform = 'translateY(0) scale(1)';
-                                }, 50);
-                            }, index * 100);
-                        } else {
-                            card.style.transition = 'all 0.3s ease-out';
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(-20px) scale(0.9)';
-                            
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                projectCards.forEach((card) => {
+                    const cardCategory = card.getAttribute('data-category');
+
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.5s ease-out';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0) scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.transition = 'all 0.3s ease-out';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(-20px) scale(0.9)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
                 });
             });
         });
+    });
 
-        function checkScroll()
-        {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const scrollPercentage = (scrollTop + windowHeight) / documentHeight;
+    function checkScroll()
+    {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollPercentage = (scrollTop + windowHeight) / documentHeight;
 
-            if (scrollPercentage >= 0.8 || (scrollTop + windowHeight >= documentHeight - 50)) {
-                document.body.classList.add('show-footer');
-            } else {
-                document.body.classList.remove('show-footer');
-            }
-            const langToggle = document.querySelector('.language-toggle');
-            if (scrollTop <= 50) {
-                langToggle.classList.add('show-lang');
-            } else {
-                langToggle.classList.remove('show-lang');
-            }
+        if (scrollPercentage >= 0.8 || (scrollTop + windowHeight >= documentHeight - 50)) {
+            document.body.classList.add('show-footer');
+        } else {
+            document.body.classList.remove('show-footer');
         }
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
+        const langToggle = document.querySelector('.language-toggle');
+        if (scrollTop <= 50) {
+            langToggle.classList.add('show-lang');
+        } else {
+            langToggle.classList.remove('show-lang');
+        }
+    }
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
 
-        function initVideoPreviewAnimations() {
-            const videoContainers = document.querySelectorAll('.video-container');
+    function initVideoPreviewAnimations() {
+        const videoContainers = document.querySelectorAll('.video-container');
+        
+        videoContainers.forEach((container, index) => {
+            const img = container.querySelector('.video-preview');
+            const overlay = container.querySelector('.video-overlay');
             
-            videoContainers.forEach((container, index) => {
-                const img = container.querySelector('.video-preview');
-                const overlay = container.querySelector('.video-overlay');
-                
-                setTimeout(() => {
-                    img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
-                }, index * 500);
-                
-                container.addEventListener('mouseenter', () => {
-                    img.style.animation = 'subtle-breathe 2s ease-in-out infinite';
-                    overlay.style.opacity = '1';
-                });
-                
-                container.addEventListener('mouseleave', () => {
-                    img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
-                    overlay.style.opacity = '0';
-                });
+            setTimeout(() => {
+                img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
+            }, index * 500);
+            
+            container.addEventListener('mouseenter', () => {
+                img.style.animation = 'subtle-breathe 2s ease-in-out infinite';
+                overlay.style.opacity = '1';
             });
-        }
-
-        // Initialiser les animations
-        window.addEventListener('load', () => {
-            initVideoPreviewAnimations();
+            
+            container.addEventListener('mouseleave', () => {
+                img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
+                overlay.style.opacity = '0';
+            });
         });
-    </script>
+    }
+
+    window.addEventListener('load', () => {
+        initVideoPreviewAnimations();
+    });
+</script>
+
 </body>
 </html>
