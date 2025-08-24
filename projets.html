@@ -1,190 +1,361 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projets - Samuel COUTANT</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Explorez les projets mes créatifs">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Samuel COUTANT</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-  <header>
-    <h1>Samuel COUTANT - Mes Projets</h1>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="projets.html">Projets</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button id="langBtn" title="Switch to English"></button>
-  </header>
 
-  <main>
-    <section class="intro-section">
-      <h2>Découvrez mes réalisations</h2>
-      <p>Voici une sélection de mes projets les plus marquants.</p>
-    </section>
+    <header>
+        <h1>Samuel COUTANT - Mes Projets</h1>
+        <nav>
+            <a href="index.html" class="nav-button">Accueil</a>
+            <a href="projets.html" class="nav-button active">Projets</a>
+            <a href="contact.html" class="nav-button">Contact</a>
+        </nav>
+    </header>
 
-    <section class="filter-section">
-      <button class="filter-btn active" data-category="all">Tous</button>
-      <button class="filter-btn" data-category="films">Films</button>
-      <button class="filter-btn" data-category="clips">Clips</button>
-      <button class="filter-btn" data-category="autre">Autre</button>
-    </section>
+    <main class="content">
+        <section class="intro-section">
+            <h2>Découvrez mes réalisations</h2>
+            <p>
+                Voici une sélection de mes projets les plus marquants.
+            </p>
+        </section>
 
-    <section class="projects-section">
-      <div class="project-card" data-category="films">
-        <img src="images/projet1.jpg" alt="Projet 1">
-        <h3>Remake Pulp Fiction</h3>
-      </div>
-      <div class="project-card" data-category="clips">
-        <img src="images/projet2.jpg" alt="Projet 2">
-        <h3>Suicide Blonde clip non officiel</h3>
-      </div>
-      <div class="project-card" data-category="films">
-        <img src="images/projet3.jpg" alt="Projet 3">
-        <h3>Alterius</h3>
-      </div>
-      <div class="project-card" data-category="films">
-        <img src="images/projet4.jpg" alt="Projet 4">
-        <h3>Sous la surface</h3>
-      </div>
-      <div class="project-card" data-category="autre">
-        <img src="images/projet5.jpg" alt="Projet 5">
-        <h3>Short</h3>
-      </div>
-    </section>
-  </main>
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: #dc3545; color: white; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Tous</button>
+            <button class="filter-btn" data-category="films" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: rgba(220, 53, 69, 0.1); color: #dc3545; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Films</button>
+            <button class="filter-btn" data-category="clips" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: rgba(220, 53, 69, 0.1); color: #dc3545; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Clips</button>
+            <button class="filter-btn" data-category="autre" style="padding: 0.8rem 1.5rem; border: 2px solid rgba(220, 53, 69, 0.3); background: rgba(220, 53, 69, 0.1); color: #dc3545; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 500; font-family: inherit;">Autre</button>
+        </div>
 
-  <footer>
-    <p>&copy; 2025 Samuel COUTANT. Tous droits réservés.</p>
-  </footer>
+        <div class="projects-grid">
+           <div class="project-card" data-category="films">
+                <h3>Remake Pulp Fiction</h3>
+                    <div class="video-container">
+                     <a href="https://youtu.be/evMCBbycDW8" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/thumbnails/pulp-fiction.webp"
+                            alt="Remake Pulp Fiction - Cliquez pour voir sur YouTube"
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
+                    </a>
+                </div>
+            </div> 
+            
+            <div class="project-card" data-category="clips">
+                <h3>Suicide Blonde clip non officiel</h3>
+                <div class="video-container">
+                    <a href="https://youtu.be/CdU1Qs8kYy8?si=Lrut3BRjH4iAP1wM" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/thumbnails/suicide_blond.webp"
+                            alt="Suicide Blonde clip non officiel - Cliquez pour voir sur YouTube"
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
 
-  <script>
-    const translations = {
-      fr: {
-        title: "Projets - Samuel COUTANT",
-        headerTitle: "Samuel COUTANT - Mes Projets",
-        navHome: "Accueil",
-        navProjects: "Projets",
-        navContact: "Contact",
-        introTitle: "Découvrez mes réalisations",
-        introText: "Voici une sélection de mes projets les plus marquants.",
-        filterAll: "Tous",
-        filterFilms: "Films",
-        filterClips: "Clips",
-        filterRandom: "Autre",
-        projectShort: "Short",
-        projectSuicideBlonde: "Suicide Blonde clip non officiel",
-        projectAlterius: "Alterius",
-        projectSousLaSurface: "Sous la surface",
-        projectRemakePulpFiction: "Remake Pulp Fiction",
-        altText: "Projet X - Cliquez pour voir sur YouTube",
-        langButtonTitle: "Switch to English"
-      },
-      en: {
-        title: "Projects - Samuel COUTANT",
-        headerTitle: "Samuel COUTANT - My Projects",
-        navHome: "Home",
-        navProjects: "Projects",
-        navContact: "Contact",
-        introTitle: "Discover my work",
-        introText: "Here is a selection of my most notable projects.",
-        filterAll: "All",
-        filterFilms: "Films",
-        filterClips: "Clips",
-        filterRandom: "Other",
-        projectShort: "Short",
-        projectSuicideBlonde: "Suicide Blonde unofficial clip",
-        projectAlterius: "Alterius",
-        projectSousLaSurface: "Under the surface",
-        projectRemakePulpFiction: "Pulp Fiction Remake",
-        altText: "Project X - Click to watch on YouTube",
-        langButtonTitle: "Passer en français"
-      }
-    };
+            <div class="project-card" data-category="films">
+                <h3>Alterius</h3>
+                <div class="video-container">
+                    <a href="https://youtu.be/f0zxQMsftmY " target="_blank" rel="noopener noreferrer">
+                        <img src="assets/thumbnails/alterius.webp"
+                            alt="Alterius - Cliquez pour voir sur YouTube"
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
 
-    let currentLang = localStorage.getItem('language') || 'fr';
+            <div class="project-card" data-category="films">
+                <h3>Sous la surface</h3>
+                <div class="video-container">
+                    <a href="https://www.youtube.com/watch?v=hyRQfjAJkn8&t=1s" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/thumbnails/sous_la_surface.webp"
+                            alt="Sous la surface - Cliquez pour voir sur YouTube"
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
 
-    function updateContent(lang) {
-      const t = translations[lang];
+            <div class="project-card" data-category="autre">
+                <h3>Short</h3>
+                <div class="video-container">
+                    <a href="https://www.youtube.com/shorts/80spv_1TshU" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/thumbnails/short.webp"
+                            alt="Short - Cliquez pour voir sur YouTube"
+                            class="video-preview">
+                        <div class="video-overlay">
+                            <div class="play-pulse"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
 
-      document.title = t.title;
-      document.querySelector('header h1').textContent = t.headerTitle;
-      document.querySelector('nav a[href="index.html"]').textContent = t.navHome;
-      document.querySelector('nav a[href="projets.html"]').textContent = t.navProjects;
-      document.querySelector('nav a[href="contact.html"]').textContent = t.navContact;
-      document.querySelector('.intro-section h2').textContent = t.introTitle;
-      document.querySelector('.intro-section p').textContent = t.introText;
+    <footer class="page-footer">
+        <a href="https://github.com/Samuel-COUTANT" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.4.6.1.8-.26.8-.58v-2.02c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.75.08-.73.08-.73 1.21.09 1.85 1.25 1.85 1.25 1.08 1.85 2.83 1.31 3.52 1 .11-.78.42-1.31.77-1.61-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.2.69.82.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            GitHub
+        </a>
+    </footer>
 
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      filterButtons[0].textContent = t.filterAll;
-      filterButtons[1].textContent = t.filterFilms;
-      filterButtons[2].textContent = t.filterClips;
-      filterButtons[3].textContent = t.filterRandom;
+    <div class="language-toggle">
+        <button id="langBtn" class="lang-button" title="Switch to English">
+            <svg class="flag-icon" width="24" height="18" viewBox="0 0 24 18" fill="none">
+                <rect width="24" height="18" fill="#012169"/>
+                <path d="M0 0L24 18M24 0L0 18" stroke="white" stroke-width="2"/>
+                <path d="M0 0L24 18M24 0L0 18" stroke="#C8102E" stroke-width="1"/>
+                <path d="M12 0V18M0 9H24" stroke="white" stroke-width="3"/>
+                <path d="M12 0V18M0 9H24" stroke="#C8102E" stroke-width="2"/>
+            </svg>
+        </button>
+    </div>
 
-      const projectTitles = document.querySelectorAll('.project-card h3');
-      if (projectTitles.length >= 5) {
-        projectTitles[0].textContent = t.projectRemakePulpFiction;
-        projectTitles[1].textContent = t.projectSuicideBlonde;
-        projectTitles[2].textContent = t.projectAlterius;
-        projectTitles[3].textContent = t.projectSousLaSurface;
-        projectTitles[4].textContent = t.projectShort;
-      }
+    <script>
+        const translations = {
+            fr: {
+                title: "Projets - Samuel COUTANT",
+                headerTitle: "Samuel COUTANT - Mes Projets",
+                navHome: "Accueil",
+                navProjects: "Projets",
+                navContact: "Contact",
+                introTitle: "Découvrez mes réalisations",
+                introText: "Voici une sélection de mes projets les plus marquants.",
+                filterAll: "Tous",
+                filterFilms: "Films",
+                filterClips: "Clips",
+                filterRandom: "Autre",
+                projectShort: "Short",
+                projectSuicideBlonde: "Suicide Blonde clip non officiel",
+                projectAlterius: "Alterius",
+                projectSousLaSurface: "Sous la surface",
+                projectRemakePulpFiction : "Remake Pulp Fiction",
+                altText: "Projet X - Cliquez pour voir sur YouTube",
+                langButtonTitle: "Switch to English"
+            },
+            en: {
+                title: "Projects - Samuel COUTANT",
+                headerTitle: "Samuel COUTANT - My Projects",
+                navHome: "Home",
+                navProjects: "Projects",
+                navContact: "Contact",
+                introTitle: "Discover my work",
+                introText: "Here is a selection of my most notable projects.",
+                filterAll: "All",
+                filterFilms: "Films",
+                filterClips: "Clips",
+                filterRandom: "Other",
+                projectShort: "Short",
+                projectSuicideBlonde: "Suicide Blonde unofficial clip",
+                projectAlterius: "Alterius",
+                projectSousLaSurface: "Under the surface",
+                projectRemakePulpFiction : "Remake Pulp Fiction",
+                altText: "Project X - Click to watch on YouTube",
+                langButtonTitle: "Passer en français"
+            }
+        };
 
-      const images = document.querySelectorAll('.project-card img');
-      images.forEach((img, index) => {
-        img.alt = t.altText.replace('X', index + 1);
-      });
+        let currentLang = localStorage.getItem('language') || 'fr';
 
-      const langBtn = document.getElementById('langBtn');
-      if (lang === 'fr') {
-        langBtn.innerHTML = `<svg class="flag-icon" width="24" height="18" viewBox="0 0 24 18" fill="none">
-          <rect width="24" height="18" fill="#012169"/>
-          <path d="M0 0L24 18M24 0L0 18" stroke="white" stroke-width="2"/>
-          <path d="M0 0L24 18M24 0L0 18" stroke="#C8102E" stroke-width="1"/>
-          <path d="M12 0V18M0 9H24" stroke="white" stroke-width="3"/>
-          <path d="M12 0V18M0 9H24" stroke="#C8102E" stroke-width="2"/>
-        </svg>`;
-        langBtn.title = t.langButtonTitle;
-      } else {
-        langBtn.innerHTML = `<svg class="flag-icon" width="24" height="18" viewBox="0 0 24 18" fill="none">
-          <rect width="8" height="18" fill="#002654"/>
-          <rect x="8" width="8" height="18" fill="white"/>
-          <rect x="16" width="8" height="18" fill="#CE1126"/>
-        </svg>`;
-        langBtn.title = t.langButtonTitle;
-      }
-    }
+        function updateContent(lang)
+        {
+            const t = translations[lang];
+            
+            document.title = t.title;            
+            document.querySelector('header h1').textContent = t.headerTitle;
+            document.querySelector('nav a[href="index.html"]').textContent = t.navHome;
+            document.querySelector('nav a[href="projets.html"]').textContent = t.navProjects;
+            document.querySelector('nav a[href="contact.html"]').textContent = t.navContact;
+            document.querySelector('.intro-section h2').textContent = t.introTitle;
+            document.querySelector('.intro-section p').textContent = t.introText;
+            
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons[0].textContent = t.filterAll;
+            filterButtons[1].textContent = t.filterFilms;
+            filterButtons[2].textContent = t.filterClips;
+            filterButtons[3].textContent = t.filterRandom;
+            
+            const projectTitles = document.querySelectorAll('.project-card h3');
 
-    function applyFilter(category) {
-      const cards = document.querySelectorAll('.project-card');
-      cards.forEach(card => {
-        const match = category === 'all' || card.dataset.category === category;
-        card.style.display = match ? '' : 'none';
-      });
-    }
+            projectTitles[0].textContent = t.projectRemakePulpFiction;
+            projectTitles[1].textContent = t.projectSuicideBlonde;
+            projectTitles[2].textContent = t.projectAlterius;
+            projectTitles[3].textContent = t.projectSousLaSurface;
+            projectTitles[4].textContent = t.projectShort;
+          
+            
+            const images = document.querySelectorAll('.project-card img');
+            images.forEach((img, index) => {
+                img.alt = t.altText.replace('X', index + 1);
+            });
+            
+            const langBtn = document.getElementById('langBtn');
+            if (lang === 'fr') {
+                langBtn.innerHTML = `<svg class="flag-icon" width="24" height="18" viewBox="0 0 24 18" fill="none">
+                    <rect width="24" height="18" fill="#012169"/>
+                    <path d="M0 0L24 18M24 0L0 18" stroke="white" stroke-width="2"/>
+                    <path d="M0 0L24 18M24 0L0 18" stroke="#C8102E" stroke-width="1"/>
+                    <path d="M12 0V18M0 9H24" stroke="white" stroke-width="3"/>
+                    <path d="M12 0V18M0 9H24" stroke="#C8102E" stroke-width="2"/>
+                </svg>`;
+                langBtn.title = t.langButtonTitle;
+            } else {
+                langBtn.innerHTML = `<svg class="flag-icon" width="24" height="18" viewBox="0 0 24 18" fill="none">
+                    <rect width="8" height="18" fill="#002654"/>
+                    <rect x="8" width="8" height="18" fill="white"/>
+                    <rect x="16" width="8" height="18" fill="#CE1126"/>
+                </svg>`;
+                langBtn.title = t.langButtonTitle;
+            }
+        }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      updateContent(currentLang);
+        window.addEventListener('load', function()
+        {
+            updateContent(currentLang);
+            
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach((card) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px) scale(0.9)';
+            });
 
-      const langBtn = document.getElementById('langBtn');
-      langBtn.addEventListener('click', function () {
-        currentLang = currentLang === 'fr' ? 'en' : 'fr';
-        localStorage.setItem('language', currentLang);
-        updateContent(currentLang);
-      });
-
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterButtons.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          applyFilter(btn.dataset.category);
+            projectCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0) scale(1)';
+                }, index * 200);
+            });
         });
-      });
 
-      const active = document.querySelector('.filter-btn.active');
-      if (active) applyFilter(active.dataset.category);
-    });
-  </script>
+        document.addEventListener('DOMContentLoaded', function()
+        {
+            const langBtn = document.getElementById('langBtn');
+            
+            langBtn.addEventListener('click', function()
+            {
+                this.style.transform = 'scale(0.9)';
+                this.style.boxShadow = '0 0 20px rgba(220, 53, 69, 0.8)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+                    localStorage.setItem('language', currentLang);
+                    updateContent(currentLang);
+                }, 150);
+            });
+
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    projectCards.forEach((card, index) => {
+                        const cardCategory = card.getAttribute('data-category');
+                        
+                        if (category === 'all' || cardCategory === category) {
+                            setTimeout(() => {
+                                card.style.display = 'block';
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px) scale(0.9)';
+                                
+                                setTimeout(() => {
+                                    card.style.transition = 'all 0.5s ease-out';
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0) scale(1)';
+                                }, 50);
+                            }, index * 100);
+                        } else {
+                            card.style.transition = 'all 0.3s ease-out';
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(-20px) scale(0.9)';
+                            
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+
+        function checkScroll()
+        {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollPercentage = (scrollTop + windowHeight) / documentHeight;
+
+            if (scrollPercentage >= 0.8 || (scrollTop + windowHeight >= documentHeight - 50)) {
+                document.body.classList.add('show-footer');
+            } else {
+                document.body.classList.remove('show-footer');
+            }
+            const langToggle = document.querySelector('.language-toggle');
+            if (scrollTop <= 50) {
+                langToggle.classList.add('show-lang');
+            } else {
+                langToggle.classList.remove('show-lang');
+            }
+        }
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        function initVideoPreviewAnimations() {
+            const videoContainers = document.querySelectorAll('.video-container');
+            
+            videoContainers.forEach((container, index) => {
+                const img = container.querySelector('.video-preview');
+                const overlay = container.querySelector('.video-overlay');
+                
+                setTimeout(() => {
+                    img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
+                }, index * 500);
+                
+                container.addEventListener('mouseenter', () => {
+                    img.style.animation = 'subtle-breathe 2s ease-in-out infinite';
+                    overlay.style.opacity = '1';
+                });
+                
+                container.addEventListener('mouseleave', () => {
+                    img.style.animation = `subtle-breathe ${6 + index}s ease-in-out infinite`;
+                    overlay.style.opacity = '0';
+                });
+            });
+        }
+
+        // Initialiser les animations
+        window.addEventListener('load', () => {
+            initVideoPreviewAnimations();
+        });
+    </script>
 </body>
 </html>
